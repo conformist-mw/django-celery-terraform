@@ -1,17 +1,17 @@
 import logging
 import time
 
-from django_aws import celery
+from config import celery_app
 
 
-@celery.app.task()
+@celery_app.task()
 def web_task() -> None:
     logging.info("Starting web task...")
     time.sleep(10)
     logging.info("Done web task.")
 
 
-@celery.app.task()
+@celery_app.task()
 def beat_task() -> None:
     logging.info("Starting beat task...")
     time.sleep(10)
